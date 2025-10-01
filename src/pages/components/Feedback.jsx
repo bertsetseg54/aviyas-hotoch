@@ -9,7 +9,7 @@ export default function Feedback() {
       {/* QR код карт */}
       <div className="bg-white shadow-lg rounded-2xl p-6 flex flex-col items-center gap-10">
         <img
-          src="https://mail.google.com/mail/u/0?ui=2&ik=c4d190eb69&attid=0.1&permmsgid=msg-f:1844741411388061942&th=1999d68a303cf8f6&view=fimg&fur=ip&permmsgid=msg-f:1844741411388061942&sz=s0-l75-ft&attbid=ANGjdJ_Sfa43MycXdFtvUlmgvwKgcMt0TitmzF8VxIpckBP0rsRYHJXRXRsri2UGHKU8gNIe0_jFXFyyG2QEXSC2y5XRqsWbJ6hGM-FF4th22fCY21bJynYkoOQrnHY&disp=emb&realattid=ii_1999d685ab5e38e167c1&zw"
+          src="1000022659.jpg"
           alt="QR"
           className="w-[300px] h-[300px] object-contain"
         />
