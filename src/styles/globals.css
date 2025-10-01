@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+@plugin "daisyui";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.menu li {
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  /* border-top-right-radius: 20px; */
+  transition: 0.3s;
+  width: 12%;
+}
+.menu li a {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: large;
+  width: 100%;
+  height: 100%;
+  padding: 25px 10px;
+  font-size: 18px;
+  text-align: center;
+  gap: 10px;
+}
+.brr {
+  color: black;
+  font-size: 18px;
+  font-weight: 300px;
+  box-shadow: 0 4px 8px 0 #909497;
+}
+.imgtag {
+  position: absolute;
+  top: -30px;
+  left: 33px;
+  width: 70%;
+  aspect-ratio: 4/5;
+  border-radius: 10px;
+}
+.divshadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+}
+.buttondiv {
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.2),
+    0 20px 20px 0 rgba(45, 44, 44, 0.19);
+}
