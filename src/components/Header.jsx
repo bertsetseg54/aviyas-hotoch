@@ -5,7 +5,6 @@ export default function Header() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // LocalStorage-оос хэрэглэгчийн мэдээллийг авах
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
@@ -14,65 +13,71 @@ export default function Header() {
 
   const handleLogout = () => {
     localStorage.removeItem('user');
-    window.location.href = '/login'; // Шууд redirect
+    window.location.href = '/login';
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 sm:pt-[1.5vw] pointer-events-none">
-      <div className="max-w-[1200px] w-full bg-white/85 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.04)] rounded-[20px] sm:rounded-[1.5vw] p-3 sm:p-[0.8vw] px-6 sm:px-[1.5vw] pointer-events-auto transition-all duration-300">
-        <div className="flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-[5vw] pt-[1.2vw] pointer-events-none font-sans">
+      <div className="max-w-[1200px] w-full m-auto bg-[#F8FAFC]/95 backdrop-blur-md border border-gray-200/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)] rounded-[1.2vw] p-[0.7vw] px-[1.5vw] pointer-events-auto transition-all duration-200">
+        <div className="grid grid-cols-3 items-center w-full">
           
-          {/* Зүүн тал: Лого болон Гарчиг */}
-          <div className="flex items-center gap-4 sm:gap-[1.5vw]">
-            <Link href="/" className="shrink-0 group">
-              <div className="h-[42px] w-[42px] sm:h-[3.3vw] sm:w-[3.3vw] sm:min-h-[42px] sm:min-w-[42px] transition-transform duration-300 group-hover:scale-105">
+          {/* 1. Зүүн хэсэг: Лого болон Нэр */}
+          <div className="flex items-center gap-[1vw] justify-self-start">
+            <Link href="/" className="shrink-0">
+              <div className="h-[3.3vw] w-[3.3vw] rounded-[0.8vw] overflow-hidden border-[0.1vw] border-slate-100 shrink-0 shadow-sm">
                 <img
                   src="/Schoollogo.jpg"
                   alt="Logo"
-                  className="h-full w-full object-cover rounded-lg"
+                  className="h-full w-full object-cover"
                 />
               </div>
             </Link>
-
-            <div className="h-[24px] sm:h-[2vw] w-[1px] bg-gray-200/60 shrink-0"></div>
-
-            <div className="flex flex-col justify-center min-w-0">
-              <h1 className="text-[16px] sm:text-[1.2vw] font-black text-slate-800 uppercase leading-none tracking-tight whitespace-nowrap">
+            <div className="h-[2vw] w-[1px] bg-gray-200/60"></div>
+            <div className="flex flex-col">
+              <h1 className="text-[1.1vw] font-black text-slate-800 uppercase leading-none tracking-tight whitespace-nowrap">
                 "Авьяас" Сургууль
               </h1>
-              <p className="text-[11px] sm:text-[0.75vw] font-bold text-blue-600 uppercase tracking-[0.25em] mt-1.5 opacity-90 leading-none whitespace-nowrap">
+              <p className="text-[0.7vw] font-black text-blue-600 uppercase tracking-[0.25em] mt-[0.3vw] leading-none whitespace-nowrap">
                 Дижитал Хөтөч
               </p>
             </div>
           </div>
 
-          {/* Баруун тал: Хэрэглэгч болон Гарах товч */}
-          {user && (
-            <div className="flex items-center gap-4 sm:gap-[1.5vw]">
-              <div className="hidden md:flex flex-col items-end">
-                <span className="text-[10px] font-black text-slate-800 uppercase tracking-tight">
-                  {user.username}
-                </span>
-              </div>
+          {/* 2. Гол хэсэг: Хоосон (Эсвэл ирээдүйд цэс нэмж болно) */}
+          <div></div>
 
-              <button
-                onClick={handleLogout}
-                className="flex items-center gap-2 bg-slate-50 hover:bg-red-50 border border-slate-100 hover:border-red-100 px-4 py-2 rounded-xl transition-all group active:scale-95"
-              >
-                <span className="text-[9px] font-black text-slate-500 group-hover:text-red-600 uppercase tracking-widest transition-colors">
-                  Гарах
-                </span>
-                <svg 
-                  className="w-3.5 h-3.5 text-slate-400 group-hover:text-red-600 transition-colors" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
+          {/* 3. Баруун хэсэг: Хэрэглэгч болон Гарах */}
+          <div className="flex items-center gap-[1vw] justify-self-end">
+            {user && (
+              <div className="flex items-center gap-[1vw]">
+                <div className="hidden md:flex flex-col items-end leading-none">
+                  <span className="text-[0.85vw] font-black text-slate-800 uppercase tracking-tight whitespace-nowrap">
+                    {user.username}
+                  </span>
+                </div>
+
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-[0.6vw] bg-white hover:bg-red-50 border-[0.1vw] border-[#E2E8F0] hover:border-red-200 px-[1.2vw] py-[0.7vw] rounded-[1vw] transition-all active:scale-95 group shrink-0 shadow-sm"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                </svg>
-              </button>
-            </div>
-          )}
+                  <span className="text-[0.8vw] font-black text-slate-600 group-hover:text-red-600 uppercase tracking-wider leading-none">
+                    Гарах
+                  </span>
+                  <div className="w-[1vw] h-[1vw] shrink-0">
+                    <svg 
+                      className="w-full h-full text-slate-400 group-hover:text-red-600 transition-colors" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="3" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            )}
+          </div>
 
         </div>
       </div>
