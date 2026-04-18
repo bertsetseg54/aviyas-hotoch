@@ -1,4 +1,4 @@
-import Food from "./components/Food";
+import Food from "../components/Food";
 
 export default function Home() {
   return (

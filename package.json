@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cloudinary": "^2.9.0",
+    "mongodb": "3.6",
+    "mongoose": "^9.4.1",
     "next": "15.3.1",
+    "next-cloudinary": "^6.17.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-slick": "^0.31.0",
